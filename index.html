@@ -2,45 +2,37 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>ResiaCraft | Premium Mağaza</title>
+    <title>ResiaCraft | Mağaza</title>
     <style>
-        /* Tasarım Ayarları */
-        body { margin: 0; background: url('https://wallpaperaccess.com/full/1568864.jpg') center/cover fixed; font-family: sans-serif; color: white; }
-        .nav { background: rgba(0, 0, 0, 0.85); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ffcc00; }
-        .logo { width: 80px; filter: drop-shadow(0 0 5px #ffcc00); }
-        .sepet-kirmizi { color: red; font-weight: bold; animation: yanip-son 1s infinite; display: none; margin-left: 10px; }
-        @keyframes yanip-son { 0% { opacity: 1; } 50% { opacity: 0; } }
-        
-        /* Mağaza Menüsü */
-        .magaza-menu { display: none; position: fixed; top: 20%; left: 35%; width: 30%; background: #1a1a1a; padding: 25px; border-radius: 15px; border: 2px solid #ffcc00; text-align: center; }
-        .item-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; background: #333; color: white; border: none; cursor: pointer; transition: 0.3s; }
-        .item-btn:hover { background: #ffcc00; color: black; }
+        body{margin:0;background:url('https://www.minecraft.net/content/dam/minecraft/home/Minecraft_Logo_2020.png') no-repeat center fixed;background-size:cover;color:#fff;font-family:sans-serif}
+        .nav{background:rgba(0,0,0,.85);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #ffcc00}
+        .sepet{color:red;font-weight:bold;animation:b 1s infinite;display:none;margin-left:15px}
+        @keyframes b{50%{opacity:0}}
+        #m{display:none;position:fixed;top:20%;left:30%;width:40%;background:#222;padding:20px;border:2px solid #fff;border-radius:10px;text-align:center}
+        button{cursor:pointer;padding:12px 24px;background:#ffcc00;border:none;font-weight:bold;font-size:16px}
     </style>
 </head>
 <body>
-
-<div class="nav">
-    <img src="aslan-logo.png" class="logo" alt="ResiaCraft">
-    <div>
-        <span onclick="document.getElementById('menu').style.display='block'" style="cursor:pointer; margin-right:20px;">MAĞAZA</span>
-        <span id="sepet" class="sepet-kirmizi">SEPETTE 1 ÜRÜN</span>
-        <span>| play.resiacraft.com.tr</span>
+    <div class="nav">
+        <img src="aslan-logo.png" width="60" alt="Logo">
+        <div>
+            <span onclick="document.getElementById('m').style.display='block'" style="cursor:pointer">MAĞAZA</span>
+            <span id="s" class="sepet">SEPET (1)</span>
+            <span style="margin-left:20px">IP: play.resiacraft.com.tr</span>
+        </div>
     </div>
-</div>
-
-<div id="menu" class="magaza-menu">
-    <h2>Boxmining Ürünleri</h2>
-    <button class="item-btn" onclick="sepeteEkle()">VIP & Kasa Satın Al</button>
-    <button onclick="document.getElementById('menu').style.display='none'" style="background:none; border:none; color:red; cursor:pointer;">Kapat</button>
-</div>
-
-<script>
-    let uyeMi = false; // Burayı giriş yapınca true yapacaksın
-    function sepeteEkle() {
-        if(!uyeMi) { alert("Satın almak için Üye Olmalısın!"); } 
-        else { document.getElementById('sepet').style.display = 'inline'; alert("Ürün sepete eklendi!"); }
-    }
-</script>
-
+    <div id="m">
+        <h2>Boxmining Mağazası</h2>
+        <button onclick="k()">VIP & Kasa Satın Al</button>
+        <p>İşlem için üye olmalısın.</p>
+        <button onclick="document.getElementById('m').style.display='none'" style="background:#555">Kapat</button>
+    </div>
+    <script>
+        let L = false; 
+        function k(){
+            if(!L){alert("Üye Olmalısın!")}
+            else{document.getElementById('s').style.display='inline';alert("Sepete Eklendi!")}
+        }
+    </script>
 </body>
 </html>
