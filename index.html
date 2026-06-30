@@ -3,111 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResiaCraft | Minecraft Sunucusu</title>
-    <!-- Tailwind CSS (Tasarım için) -->
+    <title>Resia | BOXMİNİNG Sunucusu</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome (İkonlar için) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: radial-gradient(circle, #1a1c23 0%, #0f1015 100%);
+            background: radial-gradient(circle, #1e1b4b 0%, #090514 100%);
             color: #e2e8f0;
             font-family: sans-serif;
         }
-        .minecraft-shadow {
-            text-shadow: 3px 3px 0px #000;
+        .aslan-logo {
+            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.6));
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen">
 
-    <!-- ÜST MENÜ -->
-    <header class="p-6">
-        <div class="container mx-auto flex justify-between items-center bg-[#16171d]/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-gray-800 shadow-2xl">
-            <div class="text-2xl font-black text-emerald-500 tracking-wider minecraft-shadow">RESIACRAFT</div>
-            <nav class="flex space-x-6 items-center">
-                <a href="#" class="text-emerald-400 font-bold"><i class="fa-solid fa-house mr-1"></i> Ana Sayfa</a>
-                <!-- Mağaza Linkini Buraya Koyacaksın -->
-                <a href="https://resiacraft.com.tr/magaza" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-black font-extrabold px-4 py-2 rounded-xl transition shadow-lg flex items-center gap-2">
-                    <i class="fa-solid fa-cart-shopping"></i> MAĞAZA
-                </a>
-            </nav>
+    <nav class="bg-black/40 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+            <i class="fa-solid fa-chess-knight text-blue-500 text-2xl"></i>
+            <span class="text-xl font-black tracking-wider text-white">RESIA <span class="text-blue-500">BOXMİNİNG</span></span>
         </div>
-    </header>
+        <div class="flex gap-6 font-semibold">
+            <a href="#anasayfa" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fa-solid fa-house text-sm"></i> Anasayfa</a>
+            <a href="#magaza" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fa-solid fa-shopping-cart text-sm"></i> Mağaza</a>
+            <a href="#yorumlar" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fa-solid fa-comments text-sm"></i> Yorumlar</a>
+        </div>
+        <div class="flex gap-3">
+            <button onclick="modalAc('login-modal')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-bold transition shadow-lg shadow-blue-600/30 cursor-pointer">Giriş Yap</button>
+            <button onclick="modalAc('register-modal')" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg font-bold transition border border-white/10 cursor-pointer">Kayıt Ol</button>
+        </div>
+    </nav>
 
-    <!-- ANA GİRİŞ ALANI (HERO) -->
-    <main class="container mx-auto px-6 text-center my-auto py-12">
-        <div class="max-w-3xl mx-auto space-y-6">
-            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
-                🚀 Macera Başlıyor!
-            </span>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none minecraft-shadow">
-                Türkiye'nin En İyi <br><span class="text-emerald-500">Minecraft</span> Deneyimi
-            </h1>
-            
-            <p class="text-gray-400 text-lg max-w-xl mx-auto">
-                Gelişmiş sistemler, adil ekonomi ve kesintisiz eğlence. Sen yoksan bir kişi eksiğiz!
-            </p>
+    <section id="anasayfa" class="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center text-center">
+        <div class="w-64 h-64 mb-6 relative">
+            <img src="https://i.ibb.co/68gP8Xp6/file-000000001f4c720ab21dbf1a8c0b98a6.png" alt="Resia Aslan Logosu" class="aslan-logo w-full h-full object-contain">
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4">RESIA <span class="text-blue-500">BOXMİNİNG</span></h1>
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-8">Eşsiz korumalı alt yapısı, adaletli oyun düzeni ve muazzam klan savaşlarıyla Türkiye'nin en iyi Boxmining sunucusu!</p>
 
-            <!-- AKTİF OYUNCU VE IP ALANI -->
-            <div class="bg-[#16171d] border border-gray-800 rounded-2xl p-6 max-w-md mx-auto shadow-2xl space-y-4">
-                <!-- Canlı Oyuncu Sayısı -->
-                <div class="flex items-center justify-center gap-3">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <p class="text-sm font-medium text-gray-300">
-                        Şu an sunucuda <span id="player-count" class="text-green-400 font-bold">Yükleniyor...</span> kişi aktif!
-                    </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mb-16">
+            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-between">
+                <div class="text-left">
+                    <span class="text-sm text-slate-400 block font-semibold">SUNUCU ADRESİ</span>
+                    <span class="text-xl font-bold text-white">play.resiamc.com</span>
                 </div>
+                <button onclick="navigator.clipboard.writeText('play.resiamc.com'); alert('IP Kopyalandı!');" class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-2 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition cursor-pointer">IP KOPYALA</button>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-between">
+                <div class="text-left">
+                    <span class="text-sm text-slate-400 block font-semibold">DISCORD TOPLULUĞU</span>
+                    <span class="text-xl font-bold text-white">discord.gg/resia</span>
+                </div>
+                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold hover:bg-indigo-700 transition">KATIL</a>
+            </div>
+        </div>
+    </section>
 
-                <!-- IP Kopyalama Kutusu -->
-                <div class="flex bg-black/40 rounded-xl p-2 border border-gray-700/50 justify-between items-center">
-                    <code class="text-emerald-400 font-mono font-bold pl-3 text-sm md:text-base">play.resiacraft.com.tr</code>
-                    <button onclick="copyIP()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs transition flex items-center gap-2">
-                        <i class="fa-regular fa-copy"></i> <span id="btn-text">Kopyala</span>
-                    </button>
+    <section id="magaza" class="bg-black/30 border-y border-white/5 py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-blue-500 font-bold uppercase tracking-wider text-sm">MARKET SİSTEMİ</span>
+                <h2 class="text-3xl font-black text-white mt-1">BOXMİNİNG MAĞAZASI</h2>
+                <p class="text-slate-400 mt-2">Sunucuda rakiplerinin önüne geçmek için avantaj paketlerini incele.</p>
+            </div>
+
+            <div class="flex justify-center gap-4 mb-10">
+                <button onclick="kategoriDegistir('viple')" class="kategori-btn bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold transition cursor-pointer" data-target="viple">VIPler</button>
+                <button onclick="kategoriDegistir('anahtarlar')" class="kategori-btn bg-slate-800 text-slate-300 px-6 py-2.5 rounded-xl font-bold transition hover:bg-slate-700 cursor-pointer" data-target="anahtarlar">Anahtarlar</button>
+                <button onclick="kategoriDegistir('kitler')" class="kategori-btn bg-slate-800 text-slate-300 px-6 py-2.5 rounded-xl font-bold transition hover:bg-slate-700 cursor-pointer" data-target="kitler">Kitler</button>
+            </div>
+
+            <div id="viple" class="magaza-kategori grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-b from-amber-500/10 to-transparent border border-amber-500/20 p-6 rounded-2xl text-center relative overflow-hidden">
+                    <h3 class="text-2xl font-black text-amber-400 mb-2">VİP</h3>
+                    <div class="text-3xl font-black text-white mb-4">50 TL <span class="text-sm text-slate-400 font-normal">/ Aylık</span></div>
+                    <ul class="text-slate-300 text-sm space-y-2 mb-6 text-left border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Özel [VIP] Tagı</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 3 Adet Özel Kasa Anahtarı</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> /kit vip Alma Hakkı</li>
+                    </ul>
+                    <button class="w-full bg-amber-500 hover:bg-amber-600 text-black font-black py-3 rounded-xl transition cursor-pointer">SATIN AL</button>
+                </div>
+                <div class="bg-gradient-to-b from-blue-500/20 to-transparent border-2 border-blue-500 p-6 rounded-2xl text-center relative overflow-hidden shadow-xl shadow-blue-500/10">
+                    <div class="bg-blue-500 text-white text-xs font-black px-4 py-1 absolute top-3 right-[-35px] rotate-45 w-32">POPÜLER</div>
+                    <h3 class="text-2xl font-black text-blue-400 mb-2">MVP</h3>
+                    <div class="text-3xl font-black text-white mb-4">100 TL <span class="text-sm text-slate-400 font-normal">/ Aylık</span></div>
+                    <ul class="text-slate-300 text-sm space-y-2 mb-6 text-left border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Özel [MVP] Göz Alıcı Tag</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 7 Adet Ultra Kasa Anahtarı</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> /kit mvp Ayrıcalıkları</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dolu Sunucuya Giriş Önceliği</li>
+                    </ul>
+                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-black py-3 rounded-xl transition cursor-pointer">SATIN AL</button>
+                </div>
+                <div class="bg-gradient-to-b from-purple-500/10 to-transparent border border-purple-500/20 p-6 rounded-2xl text-center relative overflow-hidden">
+                    <h3 class="text-2xl font-black text-purple-400 mb-2">RESIA VIP</h3>
+                    <div class="text-3xl font-black text-white mb-4">200 TL <span class="text-sm text-slate-400 font-normal">/ Sınırsız</span></div>
+                    <ul class="text-slate-300 text-sm space-y-2 mb-6 text-left border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Sunucunun En Üst [RESIA] Tagı</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 15 Adet Resia Kasası Anahtarı</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Her Şeyi İçeren Sınırsız Kit</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Uçma Yetkisi (/fly)</li>
+                    </ul>
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-black py-3 rounded-xl transition cursor-pointer">SATIN AL</button>
+                </div>
+            </div>
+
+            <div id="anahtarlar" class="magaza-kategori grid grid-cols-1 md:grid-cols-3 gap-8 hidden">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-key text-blue-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">5x Madenci Kasası Anahtarı</h3>
+                    <div class="text-2xl font-black text-blue-500 mb-4">15 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-key text-purple-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">5x Epik Kasa Anahtarı</h3>
+                    <div class="text-2xl font-black text-purple-500 mb-4">30 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-key text-amber-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">5x Efsanevi Kasa Anahtarı</h3>
+                    <div class="text-2xl font-black text-amber-500 mb-4">50 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+            </div>
+
+            <div id="kitler" class="magaza-kategori grid grid-cols-1 md:grid-cols-3 gap-8 hidden">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-shield-halved text-slate-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Başlangıç Pvp Kiti</h3>
+                    <div class="text-2xl font-black text-blue-500 mb-4">10 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-gavel text-amber-500 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Gelişmiş Madenci Kiti</h3>
+                    <div class="text-2xl font-black text-blue-500 mb-4">25 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
+                    <i class="fa-solid fa-gem text-red-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Klan Savaşı Elit Kiti</h3>
+                    <div class="text-2xl font-black text-blue-500 mb-4">40 TL</div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition cursor-pointer">Sepete Ekle</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="yorumlar" class="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <div class="lg:col-span-1">
+            <h3 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-receipt text-blue-500"></i> Son Satın Alanlar</h3>
+            <div class="space-y-4">
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="font-bold text-white">X_KralOyuncu_X</div>
+                        <div class="text-xs text-slate-400">RESIA VIP Satın Aldı</div>
+                    </div>
+                    <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 text-xs px-2.5 py-1 rounded-md font-bold">2 dk önce</span>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="font-bold text-white">AslanYurek</div>
+                        <div class="text-xs text-slate-400">5x Efsanevi Anahtar</div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs px-2.5 py-1 rounded-md font-bold">15 dk önce</span>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="font-bold text-white">BoxerPro</div>
+                        <div class="text-xs text-slate-400">MVP Paket Alımı</div>
+                    </div>
+                    <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs px-2.5 py-1 rounded-md font-bold">1 saat önce</span>
                 </div>
             </div>
         </div>
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="p-6 text-center text-xs text-gray-600 border-t border-gray-900 bg-[#0b0c10]">
-        <p>&copy; 2026 ResiaCraft. Tüm Hakları Saklıdır.</p>
+        <div class="lg:col-span-2">
+            <h3 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-star text-amber-400"></i> Oyuncu Yorumları</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <div class="flex text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-slate-300 italic">"Siteden VIP aldım saniyede oyuna tanımlandı. Boxmining maden alanları çok dengeli tasarlanmış, linçlenecek hiçbir kusur yok!"</p>
+                    <div class="text-xs font-bold text-white mt-4">- SkyWalker_01</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-5 rounded-xl">
+                    <div class="flex text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-slate-300 italic">"Aslan amblemli tasarımı çok sevdim, sunucu içi kitler ve kasalar tam istediğim gibi. Lag yok, yönetim çok ilgili."</p>
+                    <div class="text-xs font-bold text-white mt-4">- DemirYumruk</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-sm text-slate-500">
+        <p>&copy; 2026 Resia Sunucusu. Tüm hakları saklıdır. Bu sitenin Mojang AB ile resmi bağı yoktur.</p>
     </footer>
 
-    <!-- CANLI OYUNCU ÇEKME VE KOPYALAMA SCRIPT'LERİ -->
-    <script>
-        // 1. Sunucudan Canlı Oyuncu Sayısını Çeken Kod (API)
-        const serverIP = "play.resiacraft.com.tr";
-        
-        async function getOnlinePlayers() {
-            try {
-                const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
-                const data = await response.json();
-                if(data.online) {
-                    document.getElementById('player-count').innerText = data.players.online;
-                } else {
-                    document.getElementById('player-count').innerText = "0";
-                }
-            } catch (error) {
-                document.getElementById('player-count').innerText = "?";
-            }
-        }
-        // Sayfa açılınca ve her 30 saniyede bir oyuncu sayısını güncelle
-        getOnlinePlayers();
-        setInterval(getOnlinePlayers, 30000);
+    <div id="login-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex justify-center items-center p-4 hidden">
+        <div class="bg-slate-900 border border-white/10 p-8 rounded-2xl w-full max-w-md relative">
+            <button onclick="modalKapat('login-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h4 class="text-2xl font-black text-white text-center mb-6">Giriş Yap</h4>
+            <form onsubmit="event.preventDefault(); alert('KOD GÖNDERİLDİ! Lütfen şifre doğrulama kodunuzu giriniz.');" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">OYUN İÇİ ADINIZ (NICKNAME)</label>
+                    <input type="text" placeholder="Oyundaki adınızı girin" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">ŞİFRE</label>
+                    <input type="password" placeholder="••••••••" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition cursor-pointer">Giriş Kodunu Gönder</button>
+            </form>
+        </div>
+    </div>
 
-        // 2. IP Kopyalama Fonksiyonu
-        function copyIP() {
-            navigator.clipboard.writeText(serverIP);
-            const btnText = document.getElementById('btn-text');
-            btnText.innerText = "Kopyalandı!";
-            setTimeout(() => { btnText.innerText = "Kopyala"; }, 2000);
+    <div id="register-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex justify-center items-center p-4 hidden">
+        <div class="bg-slate-900 border border-white/10 p-8 rounded-2xl w-full max-w-md relative">
+            <button onclick="modalKapat('register-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h4 class="text-2xl font-black text-white text-center mb-6">Kayıt Ol</h4>
+            <form onsubmit="event.preventDefault(); alert('Kayıt Başarılı! Sunucuya bağlanabilirsiniz.');" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">OYUN İÇİ ADINIZ</label>
+                    <input type="text" placeholder="Oyundaki adınızı belirleyin" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">E-POSTA ADRESİ</label>
+                    <input type="email" placeholder="ornek@mail.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">ŞİFRE</label>
+                    <input type="password" placeholder="••••••••" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition cursor-pointer">Kayıt İşlemini Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mağaza sekmelerini değiştiren kod
+        function kategoriDegistir(id) {
+            document.querySelectorAll('.magaza-kategori').forEach(el => el.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            
+            document.querySelectorAll('.kategori-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            
+            const aktifBtn = document.querySelector(`[data-target="${id}"]`);
+            aktifBtn.classList.remove('bg-slate-800', 'text-slate-300');
+            aktifBtn.classList.add('bg-blue-600', 'text-white');
+        }
+
+        // Modal Açma/Kapatma fonksiyonları
+        function modalAc(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function modalKapat(id) {
+            document.getElementById(id).classList.add('hidden');
         }
     </script>
 </body>
-</html>
+    </html>
