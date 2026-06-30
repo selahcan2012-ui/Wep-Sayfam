@@ -2,37 +2,59 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>ResiaCraft | Mağaza</title>
+    <title>ResiaCraft | Premium Mağaza</title>
     <style>
-        body{margin:0;background:url('https://www.minecraft.net/content/dam/minecraft/home/Minecraft_Logo_2020.png') no-repeat center fixed;background-size:cover;color:#fff;font-family:sans-serif}
-        .nav{background:rgba(0,0,0,.85);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #ffcc00}
-        .sepet{color:red;font-weight:bold;animation:b 1s infinite;display:none;margin-left:15px}
-        @keyframes b{50%{opacity:0}}
-        #m{display:none;position:fixed;top:20%;left:30%;width:40%;background:#222;padding:20px;border:2px solid #fff;border-radius:10px;text-align:center}
-        button{cursor:pointer;padding:12px 24px;background:#ffcc00;border:none;font-weight:bold;font-size:16px}
+        /* Modern ve Hızlı Minecraft Temalı Tasarım */
+        body { margin: 0; background: url('https://www.minecraft.net/content/dam/minecraft/home/Minecraft_Logo_2020.png') no-repeat center center fixed; background-size: cover; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; }
+        .nav { background: rgba(0, 0, 0, 0.9); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #ffcc00; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .logo-img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid #fff; }
+        .menu-btn { cursor: pointer; font-size: 18px; font-weight: bold; color: #ffcc00; transition: 0.3s; }
+        .menu-btn:hover { color: #fff; text-shadow: 0 0 10px #ffcc00; }
+        .sepet-anim { color: #ff0000; font-weight: bold; font-size: 20px; animation: blink 1s infinite; display: none; margin-left: 20px; text-shadow: 1px 1px 2px #000; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+        
+        /* Mağaza Penceresi */
+        #modal { display: none; position: fixed; top: 20%; left: 30%; width: 40%; background: rgba(30, 30, 30, 0.95); padding: 30px; border: 3px solid #fff; border-radius: 20px; text-align: center; z-index: 1000; box-shadow: 0 0 30px #000; }
+        .shop-item { padding: 15px; margin: 15px 0; background: #444; border-radius: 10px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .shop-item:hover { background: #ffcc00; color: #000; }
+        button { cursor: pointer; padding: 12px 25px; background: #d9534f; border: none; color: white; font-weight: bold; border-radius: 5px; margin-top: 10px; }
+        button:hover { background: #c9302c; }
+        
+        /* Ekstra Alan doldurucu (Boyut için) */
+        .footer { position: fixed; bottom: 10px; width: 100%; text-align: center; color: rgba(255,255,255,0.5); font-size: 12px; }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <img src="aslan-logo.png" width="60" alt="Logo">
-        <div>
-            <span onclick="document.getElementById('m').style.display='block'" style="cursor:pointer">MAĞAZA</span>
-            <span id="s" class="sepet">SEPET (1)</span>
-            <span style="margin-left:20px">IP: play.resiacraft.com.tr</span>
-        </div>
+
+<div class="nav">
+    <img src="aslan-logo.png" class="logo-img" alt="Logo">
+    <div>
+        <span class="menu-btn" onclick="document.getElementById('modal').style.display='block'">MAĞAZA</span>
+        <span id="sepet" class="sepet-anim">SEPETTE 1 ÜRÜN</span>
+        <span style="margin-left:20px; font-weight:bold;">IP: play.resiacraft.com.tr</span>
     </div>
-    <div id="m">
-        <h2>Boxmining Mağazası</h2>
-        <button onclick="k()">VIP & Kasa Satın Al</button>
-        <p>İşlem için üye olmalısın.</p>
-        <button onclick="document.getElementById('m').style.display='none'" style="background:#555">Kapat</button>
-    </div>
-    <script>
-        let L = false; 
-        function k(){
-            if(!L){alert("Üye Olmalısın!")}
-            else{document.getElementById('s').style.display='inline';alert("Sepete Eklendi!")}
+</div>
+
+<div id="modal">
+    <h2 style="color:#ffcc00;">Boxmining Mağazası</h2>
+    <div class="shop-item" onclick="sepeteEkle()">VİP Satın Al</div>
+    <div class="shop-item" onclick="sepeteEkle()">Kasa Anahtarı</div>
+    <p>Satın alma işlemleri için önce üye olmalısın.</p>
+    <button onclick="document.getElementById('modal').style.display='none'">KAPAT</button>
+</div>
+
+<div class="footer">ResiaCraft Premium Hizmetler - Tüm Hakları Saklıdır</div>
+
+<script>
+    let uye = false; 
+    function sepeteEkle() {
+        if(!uye) {
+            alert("Hata: İşlem yapmak için lütfen üye olunuz!");
+        } else {
+            document.getElementById('sepet').style.display = 'inline';
+            alert("Ürün başarıyla sepete eklendi!");
         }
-    </script>
+    }
+</script>
 </body>
 </html>
